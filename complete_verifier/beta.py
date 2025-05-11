@@ -15,14 +15,15 @@
 import arguments
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from beta_CROWN_solver import LiRPANet
+    from beta_CROWN_solver1 import LiRPANet1
 
 
-def set_beta(self: 'LiRPANet', d, bias=True):
+def set_beta(self: 'LiRPANet1', d, bias=True):
     # count how many split nodes in each batch example (batch, num of layers)
     splits_per_example = []
     max_splits_per_layer = {}
     batch = len(d['history'])
+    # assert(batch == 2)
     for bi in range(batch):
         splits_per_example.append({})
         for k, v in d['history'][bi].items():
@@ -46,7 +47,7 @@ def set_beta(self: 'LiRPANet', d, bias=True):
     return splits_per_example
 
 
-def reset_beta(self: 'LiRPANet', batch, max_splits_per_layer, betas=None,
+def reset_beta(self: 'LiRPANet1', batch, max_splits_per_layer, betas=None,
                bias=False):
     beta_crown_args = arguments.Config["solver"]["beta-crown"]
     enable_opt_interm_bounds = beta_crown_args['enable_opt_interm_bounds']

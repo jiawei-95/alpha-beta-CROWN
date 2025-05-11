@@ -805,6 +805,7 @@ class LiRPANet:
         _, num_split = DomainUpdater.get_num_domain_and_split(
             d, split, self.final_name)
         args = (self.root, self.final_name, self.net.split_nodes)
+        assert(num_split == 1)
         if num_split == 1 and (split.get('points', None) is None
                                  or split['points'].ndim == 1):
             domain_updater = DomainUpdaterSimple(*args)

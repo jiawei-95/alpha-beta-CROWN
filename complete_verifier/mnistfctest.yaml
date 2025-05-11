@@ -1,0 +1,9 @@
+model:
+  name: mnist_9200  # This model is defined in model_defs.py. Add your own model definitions there.
+  path: ../mnist_9200.pth  # Path to PyTorch checkpoint.
+  input_shape: [-1, 1, 28, 28]  # vnnlib does not have input shape information, user should specify here
+specification:
+  # VNNLIB file specification.
+  vnnlib_path: ../vnncomp2021/benchmarks/mnistfc/MNISTL4/prop_0_0.0313725490196078.vnnlib
+solver:
+  batch_size: 2048  # Number of subdomains to compute in parallel in bound solver. Decrease if you run out of memory.

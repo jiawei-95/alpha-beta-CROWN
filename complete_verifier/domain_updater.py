@@ -95,6 +95,7 @@ class DomainUpdater:
             # TODO some branching points may be invalid and thus the actual
             # number of branches may be fewer (to allow some neurons to have
             # fewer branching points).
+            # self.num_copy = 2 where num_branches = 2 num_split = 1
             self.num_copy = self.num_branches**self.num_split # TODO support multiple branches
         else:
             assert mode == 'breadth', f"Unsupported splitting mode {mode}"
